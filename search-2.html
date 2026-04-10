@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body{
+            border: 2px solid black;
+            width: 500px;
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input oninput="searchfunction()" type="text" name="" id="box">
+    <ul id="list"></ul>
+</body>
+<script>
+    const family = ["mom", "dad", "brother", "uncle", "aunty", "sister"]
+
+    function searchfunction() {
+        const searchterm = document.getElementById("box").value
+        const search = family.filter((items) => (items.includes(searchterm)))
+        console.log(search)
+        displaylist(search)
+    }
+
+    function displaylist(dishlist) {
+        const ul = document.getElementById("list")
+        ul.innerHTML = dishlist.map((items) => (`<li>${items}</li>`))
+    }
+    displaylist(family)
+    searchfunction()
+</script>
+
+</html>

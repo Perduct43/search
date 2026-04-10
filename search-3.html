@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body {
+            border: 2px solid black;
+            border-radius: 10px;
+            width: 500px;
+        }
+
+        input {
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input oninput="searchfunction()" type="text" name="" id="searchbox">
+    <ul id="list"></ul>
+</body>
+<script>
+    const bodyparts = ["head", "shoulder", "knees", "toes", "legs", "hands"]
+
+    function searchfunction() {
+        const searchterm = document.getElementById("searchbox").value
+        const search = bodyparts.filter((items) => (items.includes(searchterm)))
+        console.log(search)
+        displaylist(search)
+    }
+
+    function displaylist(dishlist) {
+        const ul = document.getElementById("list")
+        ul.innerHTML = dishlist.map((items) => (`<li>${items}</li>`))
+    }
+    displaylist(bodyparts)
+    searchfunction()
+</script>
+
+</html>

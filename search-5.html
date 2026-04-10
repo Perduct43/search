@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input oninput="searchfunction()" type="text" name="" id="searchbox">
+    <ul id="list"></ul>
+</body>
+<script>
+    const devices = ["phone", "laptop", "pc", "tv", "fridge", "tablets"]
+
+    function searchfunction() {
+        const searchterm = document.getElementById("searchbox").value
+        const search = devices.filter((items) => (items.includes(searchterm)))
+        console.log(search)
+        displaylist(search)
+    }
+
+    function displaylist(dishlist) {
+        const ul = document.getElementById("list")
+        ul.innerHTML = dishlist.map((items) => (`<li>${items}</li>`))
+    }
+    displaylist(devices)
+    searchfunction()
+</script>
+
+</html>
